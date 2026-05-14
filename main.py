@@ -11,9 +11,6 @@ from instagrapi.exceptions import TwoFactorRequired
 SESSION_FILE = "session.json"
 OUTPUT_FILE  = "non_followers.json"
 
-
-# ─── CHALLENGE HELP ──────────────────────────────────────────────────────────
-
 def print_challenge_help(username: str) -> None:
     pad = lambda s, n: s + " " * (n - len(s))
     print(f"Instagram ha bloccato l'account @{pad(username, 23)}")
@@ -24,7 +21,7 @@ def _is_challenge(e: Exception) -> bool:
            "challenge" in str(e).lower()
 
 
-# ─── LOGIN ───────────────────────────────────────────────────────────────────
+# LOGIN
 
 def login(username: str, password: str, label: str = None) -> Client:
     label = label or f"@{username}"
@@ -58,9 +55,6 @@ def login(username: str, password: str, label: str = None) -> Client:
     cl.dump_settings(SESSION_FILE)
     print("[✓] Login completato. Sessione salvata.")
     return cl
-
-
-# ─── CORE LOGIC ──────────────────────────────────────────────────────────────
 
 def get_non_followers(cl: Client, user_id: int) -> list[dict]:
 
@@ -100,7 +94,7 @@ def get_non_followers(cl: Client, user_id: int) -> list[dict]:
     ]
 
 
-# ─── OUTPUT ──────────────────────────────────────────────────────────────────
+# OUTPUT
 
 def print_results(non_followers: list[dict]) -> None:
     print(f"\n{'─'*55}")

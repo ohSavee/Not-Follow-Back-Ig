@@ -5,7 +5,6 @@ from main import login, get_non_followers, print_results, save_results
 
 load_dotenv()
 
-
 def run() -> None:
     username = os.getenv("INSTAGRAM_USERNAME") or input("Username Instagram: ").strip()
     password = os.getenv("INSTAGRAM_PASSWORD") or getpass.getpass("Password Instagram: ")

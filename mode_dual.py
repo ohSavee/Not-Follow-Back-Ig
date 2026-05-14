@@ -5,8 +5,6 @@ from main import login, get_non_followers, print_results, save_results
 
 load_dotenv()
 
-# ─── RUN ─────────────────────────────────────────────────────────────────────
-
 def run() -> None:
     burner_user = os.getenv("BURNER_USERNAME") or input("Username account burner:   ").strip()
     burner_pass = os.getenv("BURNER_PASSWORD") or getpass.getpass("Password account burner:   ")
